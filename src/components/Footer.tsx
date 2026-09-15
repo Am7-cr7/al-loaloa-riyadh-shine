@@ -10,12 +10,9 @@ export function Footer() {
     <footer className="mt-20 border-t border-gold/15 bg-surface/40 pb-28 md:pb-10">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-3">
         <div>
-          <p className="font-display text-2xl font-extrabold text-gradient-gold">
-            {SITE.nameAr}
-          </p>
+          <p className="font-display text-2xl font-extrabold text-gradient-gold">{SITE.nameAr}</p>
           <p className="mt-3 text-sm leading-7 text-muted-foreground">
-            غسيل وتلميع سيارات متنقل بالبخار في الرياض. نصل إليك أينما كنت بمواد
-            معتمدة وفريق محترف.
+            غسيل وتلميع سيارات متنقل بالبخار في الرياض. نصل إليك أينما كنت بمواد معتمدة وفريق محترف.
           </p>
           <SocialLinks location="footer" className="mt-5" />
         </div>

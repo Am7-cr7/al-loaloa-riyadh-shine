@@ -138,9 +138,21 @@ function Home() {
         <SectionTitle eyebrow="لماذا اللؤلؤة؟" title="جودة تستحق سيارتك" />
         <div className="grid gap-5 md:grid-cols-3">
           {[
-            { icon: Truck, t: "نصل إليك", d: "خدمة متنقلة تغطي جميع أحياء الرياض دون أن تغادر مكانك." },
-            { icon: Star, t: "لمعة الوكالة", d: "تلميع احترافي بمواد معتمدة يعيد بريق الطلاء الأصلي." },
-            { icon: ShieldCheck, t: "آمن وموفر للماء", d: "تقنية البخار تنظف بعمق وتعقّم مع استهلاك أقل للماء." },
+            {
+              icon: Truck,
+              t: "نصل إليك",
+              d: "خدمة متنقلة تغطي جميع أحياء الرياض دون أن تغادر مكانك.",
+            },
+            {
+              icon: Star,
+              t: "لمعة الوكالة",
+              d: "تلميع احترافي بمواد معتمدة يعيد بريق الطلاء الأصلي.",
+            },
+            {
+              icon: ShieldCheck,
+              t: "آمن وموفر للماء",
+              d: "تقنية البخار تنظف بعمق وتعقّم مع استهلاك أقل للماء.",
+            },
           ].map(({ icon: Icon, t, d }) => (
             <div key={t} className="panel rounded-2xl p-6">
               <Icon className="size-7 text-gold" />
@@ -195,9 +207,7 @@ export function SectionTitle({
 }) {
   return (
     <div className="mb-10 text-center">
-      {eyebrow && (
-        <span className="text-sm font-bold tracking-wide text-gold">{eyebrow}</span>
-      )}
+      {eyebrow && <span className="text-sm font-bold tracking-wide text-gold">{eyebrow}</span>}
       <h2 className="mt-2 text-3xl font-extrabold md:text-4xl">{title}</h2>
       {sub && <p className="mt-3 text-sm text-muted-foreground">{sub}</p>}
     </div>

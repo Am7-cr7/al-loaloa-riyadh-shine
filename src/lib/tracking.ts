@@ -50,17 +50,11 @@ export function initTracking() {
   };
   window.gtag("js", new Date());
 
-  loadScript(
-    `https://www.googletagmanager.com/gtm.js?id=${TRACKING_IDS.gtm}`,
-    "gtm-script",
-  );
+  loadScript(`https://www.googletagmanager.com/gtm.js?id=${TRACKING_IDS.gtm}`, "gtm-script");
   window.dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
 
   if (TRACKING_IDS.ga4) {
-    loadScript(
-      `https://www.googletagmanager.com/gtag/js?id=${TRACKING_IDS.ga4}`,
-      "ga4-script",
-    );
+    loadScript(`https://www.googletagmanager.com/gtag/js?id=${TRACKING_IDS.ga4}`, "ga4-script");
     window.gtag("config", TRACKING_IDS.ga4);
   }
 
@@ -68,7 +62,8 @@ export function initTracking() {
   if (!window.fbq) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const fbq: any = function (...args: unknown[]) {
-      fbq.callMethod ? fbq.callMethod.apply(fbq, args) : fbq.queue.push(args);
+      if (fbq.callMethod) fbq.callMethod(...args);
+      else fbq.queue.push(args);
     };
     fbq.queue = [];
     window.fbq = fbq;
@@ -81,9 +76,8 @@ export function initTracking() {
   if (!window.snaptr) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const snaptr: any = function (...args: unknown[]) {
-      snaptr.handleRequest
-        ? snaptr.handleRequest.apply(snaptr, args)
-        : snaptr.queue.push(args);
+      if (snaptr.handleRequest) snaptr.handleRequest(...args);
+      else snaptr.queue.push(args);
     };
     snaptr.queue = [];
     window.snaptr = snaptr;
@@ -91,7 +85,6 @@ export function initTracking() {
     snaptr("init", TRACKING_IDS.snapPixel);
     snaptr("track", "PAGE_VIEW");
   }
-
 
   /* ---------------- TikTok Pixel ---------------- */
   if (!window.ttq) {
@@ -111,10 +104,7 @@ export function initTracking() {
 }
 
 /** Sends a single named conversion event to every connected platform. */
-export function trackEvent(
-  name: string,
-  params: Record<string, unknown> = {},
-) {
+export function trackEvent(name: string, params: Record<string, unknown> = {}) {
   if (typeof window === "undefined") return;
   try {
     window.gtag?.("event", name, params);
@@ -129,9 +119,7 @@ export function trackEvent(
 }
 
 /** Convenience wrappers used by the CTAs. */
-export const trackWhatsApp = (location: string) =>
-  trackEvent("whatsapp_click", { location });
-export const trackCall = (location: string) =>
-  trackEvent("call_click", { location });
+export const trackWhatsApp = (location: string) => trackEvent("whatsapp_click", { location });
+export const trackCall = (location: string) => trackEvent("call_click", { location });
 export const trackSocial = (network: string, location: string) =>
   trackEvent("social_click", { network, location });

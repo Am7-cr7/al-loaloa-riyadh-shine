@@ -64,10 +64,7 @@ export function BeforeAfter({
       </span>
 
       {/* Divider + draggable handle */}
-      <div
-        className="absolute inset-y-0 w-0.5 bg-gold"
-        style={{ left: `${pos}%` }}
-      >
+      <div className="absolute inset-y-0 w-0.5 bg-gold" style={{ left: `${pos}%` }}>
         <button
           type="button"
           role="slider"

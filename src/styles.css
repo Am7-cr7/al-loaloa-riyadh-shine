@@ -95,12 +95,7 @@
 
 /* Gold gradient text used for the brand mark and headline highlights. */
 @utility text-gradient-gold {
-  background-image: linear-gradient(
-    120deg,
-    var(--gold-soft),
-    var(--gold) 45%,
-    var(--gold-soft)
-  );
+  background-image: linear-gradient(120deg, var(--gold-soft), var(--gold) 45%, var(--gold-soft));
   background-clip: text;
   color: transparent;
 }

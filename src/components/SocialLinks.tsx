@@ -4,13 +4,7 @@ import { trackSocial } from "@/lib/tracking";
 import { cn } from "@/lib/utils";
 
 /** Social icon row — every click is reported to the pixels via trackSocial. */
-export function SocialLinks({
-  location,
-  className,
-}: {
-  location: string;
-  className?: string;
-}) {
+export function SocialLinks({ location, className }: { location: string; className?: string }) {
   const items = [
     { key: "snapchat", label: "سناب شات", href: SITE.social.snapchat, Icon: Ghost },
     { key: "tiktok", label: "تيك توك", href: SITE.social.tiktok, Icon: Music2 },

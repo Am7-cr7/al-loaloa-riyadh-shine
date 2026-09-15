@@ -18,8 +18,7 @@ export const SITE = {
     encodeURIComponent("السلام عليكم، أرغب بحجز خدمة غسيل وتلميع بالبخار 🚗"),
   whatsappPlain: "https://wa.me/966532640488",
   social: {
-    snapchat:
-      "https://www.snapchat.com/add/lulwariyadh?share_id=qZyloaBMTbY&locale=ar-EG",
+    snapchat: "https://www.snapchat.com/add/lulwariyadh?share_id=qZyloaBMTbY&locale=ar-EG",
     facebook: "https://www.facebook.com/share/19EJnmxxgJ/",
     tiktok: "https://www.tiktok.com/@lulwacarwash?_r=1&_t=ZS-99lDslwGiff",
   },
