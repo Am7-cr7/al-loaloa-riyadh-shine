@@ -7,7 +7,15 @@ import sedanAfter from "@/assets/sedan-after.jpg.asset.json";
 import seatAfter from "@/assets/seat-after.jpg.asset.json";
 import consoleAfter from "@/assets/console-after.jpg.asset.json";
 
-export const SERVICES = [
+export type Service = {
+  title: string;
+  price: string;
+  desc: string;
+  features: readonly string[];
+  featured?: boolean;
+};
+
+export const SERVICES: readonly Service[] = [
   {
     title: "غسيل خارجي بالبخار",
     price: "يبدأ من 80 ريال",
