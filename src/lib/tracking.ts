@@ -66,33 +66,32 @@ export function initTracking() {
 
   /* ---------------- Meta (Facebook) Pixel ---------------- */
   if (!window.fbq) {
-    const fbq: Window["fbq"] = function (...args: unknown[]) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const f = fbq as any;
-      f.callMethod ? f.callMethod.apply(f, args) : f.queue.push(args);
-    } as Window["fbq"];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (fbq as any).queue = [];
+    const fbq: any = function (...args: unknown[]) {
+      fbq.callMethod ? fbq.callMethod.apply(fbq, args) : fbq.queue.push(args);
+    };
+    fbq.queue = [];
     window.fbq = fbq;
     loadScript("https://connect.facebook.net/en_US/fbevents.js", "meta-pixel");
-    window.fbq("init", TRACKING_IDS.metaPixel);
-    window.fbq("track", "PageView");
+    fbq("init", TRACKING_IDS.metaPixel);
+    fbq("track", "PageView");
   }
 
   /* ---------------- Snapchat Pixel ---------------- */
   if (!window.snaptr) {
-    const snaptr: Window["snaptr"] = function (...args: unknown[]) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const s = snaptr as any;
-      s.handleRequest ? s.handleRequest.apply(s, args) : s.queue.push(args);
-    } as Window["snaptr"];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (snaptr as any).queue = [];
+    const snaptr: any = function (...args: unknown[]) {
+      snaptr.handleRequest
+        ? snaptr.handleRequest.apply(snaptr, args)
+        : snaptr.queue.push(args);
+    };
+    snaptr.queue = [];
     window.snaptr = snaptr;
     loadScript("https://sc-static.net/scevent.min.js", "snap-pixel");
-    window.snaptr("init", TRACKING_IDS.snapPixel);
-    window.snaptr("track", "PAGE_VIEW");
+    snaptr("init", TRACKING_IDS.snapPixel);
+    snaptr("track", "PAGE_VIEW");
   }
+
 
   /* ---------------- TikTok Pixel ---------------- */
   if (!window.ttq) {
