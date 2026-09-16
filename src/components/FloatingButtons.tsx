@@ -1,6 +1,7 @@
-import { MessageCircle, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { trackCall, trackWhatsApp } from "@/lib/tracking";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 /** Persistent WhatsApp / Call actions pinned to the bottom of every page. */
 export function FloatingButtons() {
@@ -14,7 +15,7 @@ export function FloatingButtons() {
         aria-label="تواصل عبر واتساب"
         className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-whatsapp py-3 font-bold text-whatsapp-foreground shadow-[var(--shadow-green)] transition hover:brightness-110 md:size-14 md:rounded-full md:py-0"
       >
-        <MessageCircle className="size-6" aria-hidden />
+        <WhatsAppIcon className="size-6" />
         <span className="md:hidden">واتساب</span>
       </a>
       <a

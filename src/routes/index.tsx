@@ -93,14 +93,29 @@ function Home() {
           {SERVICES.map((s) => (
             <article
               key={s.title}
-              className={`panel rounded-2xl p-6 transition hover:-translate-y-1 ${
+              className={`panel overflow-hidden rounded-2xl transition hover:-translate-y-1 ${
                 s.featured ? "ring-1 ring-gold/60" : ""
               }`}
             >
-              <Sparkles className="size-7 text-gold" />
-              <h3 className="mt-4 text-lg font-bold">{s.title}</h3>
-              <p className="mt-1 text-sm font-semibold text-gold">{s.price}</p>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">{s.desc}</p>
+              <img
+                src={s.image}
+                alt={s.alt}
+                width={1024}
+                height={768}
+                loading="lazy"
+                className="h-44 w-full object-cover"
+              />
+              <div className="p-6">
+                <Sparkles className="size-7 text-gold" />
+                <h3 className="mt-4 text-lg font-bold">{s.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">{s.desc}</p>
+                <WhatsAppButton
+                  location={`home_service_${s.title}`}
+                  label={s.cta}
+                  full
+                  className="mt-5 px-4 py-3 text-sm"
+                />
+              </div>
             </article>
           ))}
         </div>
