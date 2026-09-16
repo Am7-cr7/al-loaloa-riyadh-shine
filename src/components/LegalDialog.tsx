@@ -15,13 +15,7 @@ import { SITE } from "@/lib/site";
  * advertiser landing page to disclose: what data is collected, which
  * platforms receive it, the purposes, and how to withdraw consent.
  */
-export function LegalDialog({
-  children,
-  tab = "privacy",
-}: {
-  children: ReactNode;
-  tab?: "privacy" | "terms";
-}) {
+export function LegalDialog({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -38,7 +32,7 @@ export function LegalDialog({
         </DialogHeader>
 
         <div className="space-y-6 text-sm leading-7 text-muted-foreground">
-          {tab === "terms" ? null : null}
+
 
           <section>
             <h3 className="mb-1 font-bold text-foreground">١. البيانات التي نجمعها</h3>

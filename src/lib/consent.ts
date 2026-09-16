@@ -67,7 +67,9 @@ export function resetConsent() {
   listeners.forEach((fn) => fn(null));
 }
 
-export function onConsentChange(fn: (c: ConsentState | null) => void) {
+export function onConsentChange(fn: (c: ConsentState | null) => void): () => void {
   listeners.add(fn);
-  return () => listeners.delete(fn);
+  return () => {
+    listeners.delete(fn);
+  };
 }
