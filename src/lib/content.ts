@@ -6,11 +6,19 @@ import sedanBefore from "@/assets/sedan-before.jpg.asset.json";
 import sedanAfter from "@/assets/sedan-after.jpg.asset.json";
 import seatAfter from "@/assets/seat-after.jpg.asset.json";
 import consoleAfter from "@/assets/console-after.jpg.asset.json";
+import pkgExterior from "@/assets/pkg-exterior.jpg";
+import pkgInterior from "@/assets/pkg-interior.jpg";
+import pkgPolish from "@/assets/pkg-polish.jpg";
+import pkgFull from "@/assets/pkg-full.jpg";
 
 export type Service = {
   title: string;
-  price: string;
+  /** Call-to-action shown where a price used to be (no figures on the site). */
+  cta: string;
   desc: string;
+  image: string;
+  /** Descriptive alt text for the package photo. */
+  alt: string;
   features: readonly string[];
   featured?: boolean;
 };
@@ -18,27 +26,35 @@ export type Service = {
 export const SERVICES: readonly Service[] = [
   {
     title: "غسيل خارجي بالبخار",
-    price: "يبدأ من 80 ريال",
+    cta: "تواصل لمعرفة السعر",
     desc: "غسيل بالبخار موفر للماء مع تنظيف الجنوط والإطارات وتلميع الزجاج.",
+    image: pkgExterior,
+    alt: "فني محترف بزي العمل ينظف هيكل سيارة فاخرة سوداء بجهاز البخار",
     features: ["بخار عالي الحرارة", "تنظيف الجنوط", "تلميع الزجاج", "تجفيف بمناشف مايكروفايبر"],
   },
   {
     title: "تنظيف داخلي عميق",
-    price: "يبدأ من 150 ريال",
+    cta: "احجز الآن",
     desc: "تنظيف المقاعد والسجاد والكنسول وإزالة البقع والروائح بالبخار.",
+    image: pkgInterior,
+    alt: "فني تنظيف سيارات ينظف مقاعد وكنسول سيارة فاخرة بالبخار من الداخل",
     features: ["شفط شامل", "إزالة البقع", "تعقيم بالبخار", "معطر داخلي"],
     featured: true,
   },
   {
     title: "تلميع وبوليش",
-    price: "يبدأ من 350 ريال",
+    cta: "تواصل لمعرفة السعر",
     desc: "إزالة الخدوش السطحية وإعادة اللمعان الأصلي لطلاء سيارتك.",
+    image: pkgPolish,
+    alt: "فني تلميع يستخدم ماكينة بوليش على غطاء محرك سيارة فاخرة لامعة",
     features: ["تلميع 3 مراحل", "إزالة الخدوش الخفيفة", "حماية شمعية", "لمعة الوكالة"],
   },
   {
     title: "باقة الوكالة الشاملة",
-    price: "يبدأ من 500 ريال",
+    cta: "احجز الآن",
     desc: "داخلي وخارجي وتلميع كامل — سيارتك كأنها خرجت من المعرض.",
+    image: pkgFull,
+    alt: "فني يضع مادة حماية على مقعد جلد بيج في سيارة فاخرة",
     features: ["كل الخدمات السابقة", "تنظيف المحرك", "حماية الجلد", "خدمة في موقعك"],
   },
 ] as const;

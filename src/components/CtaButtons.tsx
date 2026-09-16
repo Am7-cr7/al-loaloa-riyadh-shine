@@ -1,16 +1,17 @@
-import { Phone, MessageCircle } from "lucide-react";
+import { Phone } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { trackCall, trackWhatsApp } from "@/lib/tracking";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 import { cn } from "@/lib/utils";
 
 /**
- * Shared CTA anchors. Each one fires its conversion event (with the calling
- * section name) before the browser follows the link.
+ * Shared CTA anchors. Each one fires its conversion event (Lead / Contact,
+ * with the calling section name) before the browser follows the link.
  */
 
-type Props = { location: string; className?: string; full?: boolean };
+type Props = { location: string; className?: string; full?: boolean; label?: string };
 
-export function WhatsAppButton({ location, className, full }: Props) {
+export function WhatsAppButton({ location, className, full, label }: Props) {
   return (
     <a
       href={SITE.whatsapp}
@@ -23,13 +24,13 @@ export function WhatsAppButton({ location, className, full }: Props) {
         className,
       )}
     >
-      <MessageCircle className="size-5" aria-hidden />
-      تواصل عبر واتساب
+      <WhatsAppIcon className="size-5" />
+      {label ?? "تواصل عبر واتساب"}
     </a>
   );
 }
 
-export function CallButton({ location, className, full }: Props) {
+export function CallButton({ location, className, full, label }: Props) {
   return (
     <a
       href={SITE.phoneHref}
@@ -41,7 +42,7 @@ export function CallButton({ location, className, full }: Props) {
       )}
     >
       <Phone className="size-5" aria-hidden />
-      اتصل الآن
+      {label ?? "اتصل الآن"}
     </a>
   );
 }

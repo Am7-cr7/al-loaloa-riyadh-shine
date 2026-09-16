@@ -39,30 +39,39 @@ function ServicesPage() {
         {SERVICES.map((s) => (
           <article
             key={s.title}
-            className={`panel flex flex-col rounded-2xl p-7 ${
+            className={`panel flex flex-col overflow-hidden rounded-2xl ${
               s.featured ? "ring-1 ring-gold/60" : ""
             }`}
           >
-            <div className="flex items-center justify-between">
-              <Sparkles className="size-7 text-gold" />
-              {s.featured && (
-                <span className="rounded-full bg-gold px-3 py-1 text-xs font-bold text-primary-foreground">
-                  الأكثر طلباً
-                </span>
-              )}
-            </div>
-            <h2 className="mt-4 text-xl font-bold">{s.title}</h2>
-            <p className="mt-1 font-bold text-gold">{s.price}</p>
-            <p className="mt-3 text-sm leading-7 text-muted-foreground">{s.desc}</p>
-            <ul className="mt-5 space-y-2 text-sm">
-              {s.features.map((f) => (
-                <li key={f} className="flex items-center gap-2">
-                  <Check className="size-4 text-whatsapp" /> {f}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6">
-              <WhatsAppButton location={`service_${s.title}`} full />
+            <img
+              src={s.image}
+              alt={s.alt}
+              width={1024}
+              height={768}
+              loading="lazy"
+              className="h-56 w-full object-cover"
+            />
+            <div className="flex flex-1 flex-col p-7">
+              <div className="flex items-center justify-between">
+                <Sparkles className="size-7 text-gold" />
+                {s.featured && (
+                  <span className="rounded-full bg-gold px-3 py-1 text-xs font-bold text-primary-foreground">
+                    الأكثر طلباً
+                  </span>
+                )}
+              </div>
+              <h2 className="mt-4 text-xl font-bold">{s.title}</h2>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">{s.desc}</p>
+              <ul className="mt-5 space-y-2 text-sm">
+                {s.features.map((f) => (
+                  <li key={f} className="flex items-center gap-2">
+                    <Check className="size-4 text-whatsapp" /> {f}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-6">
+                <WhatsAppButton location={`service_${s.title}`} label={s.cta} full />
+              </div>
             </div>
           </article>
         ))}
