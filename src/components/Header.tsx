@@ -32,7 +32,7 @@ export function Header() {
             onClick={() => trackWhatsApp("header")}
             className="grid size-10 place-items-center rounded-full text-whatsapp transition hover:brightness-125"
           >
-            <MessageCircle className="size-6" />
+            <WhatsAppIcon className="size-6" />
           </a>
           <a
             href={SITE.phoneHref}
@@ -59,9 +59,12 @@ export function Header() {
           </nav>
         </div>
 
-        <Link to="/" className="font-display text-2xl font-extrabold text-gradient-gold">
-          {SITE.nameAr}
-        </Link>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <Link to="/" className="font-display text-2xl font-extrabold text-gradient-gold">
+            {SITE.nameAr}
+          </Link>
+        </div>
       </div>
 
       {/* Mobile drawer */}
