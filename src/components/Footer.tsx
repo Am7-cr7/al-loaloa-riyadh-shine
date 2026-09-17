@@ -3,6 +3,8 @@ import { Clock, MapPin, Phone } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
 import { trackCall } from "@/lib/tracking";
 import { SocialLinks } from "./SocialLinks";
+import { LegalDialog } from "./LegalDialog";
+import { openCookieSettings } from "./CookieConsent";
 
 /** Site footer with contact details, navigation and social links. */
 export function Footer() {
