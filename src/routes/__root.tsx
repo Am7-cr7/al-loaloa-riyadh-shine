@@ -95,17 +95,46 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
     scripts: [
+      // Sets the stored light/dark theme before first paint (no flash).
+      { children: THEME_INIT_SCRIPT },
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "AutoWash",
-          name: "اللؤلؤة",
-          description: "غسيل وتلميع سيارات متنقل بالبخار في الرياض",
+          "@type": ["LocalBusiness", "AutoWash"],
+          "@id": "https://alloaloa.sa/#business",
+          name: "مغسلة اللؤلؤة",
+          alternateName: "Al-Loaloa Mobile Car Wash",
+          description:
+            "غسيل وتلميع سيارات بالبخار متنقل في الرياض — تنظيف داخلي عميق، بوليش، وحماية الجلد في موقعك على مدار الساعة.",
           telephone: "+966532640488",
-          areaServed: "Riyadh, Saudi Arabia",
-          address: { "@type": "PostalAddress", addressLocality: "الرياض", addressCountry: "SA" },
-          openingHours: "Mo-Su 00:00-23:59",
+          priceRange: "$$",
+          currenciesAccepted: "SAR",
+          paymentAccepted: "نقداً، مدى، تحويل بنكي",
+          areaServed: { "@type": "City", name: "الرياض" },
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "الرياض",
+            addressRegion: "منطقة الرياض",
+            addressCountry: "SA",
+          },
+          geo: { "@type": "GeoCoordinates", latitude: 24.7136, longitude: 46.6753 },
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+              ],
+              opens: "00:00",
+              closes: "23:59",
+            },
+          ],
           sameAs: [
             "https://www.snapchat.com/add/lulwariyadh",
             "https://www.facebook.com/share/19EJnmxxgJ/",
