@@ -37,7 +37,10 @@ export function ThemeToggle({ className }: { className?: string }) {
       >
         {theme === "dark" ? <Moon className="size-4" /> : <Sun className="size-4" />}
       </span>
-      <Sun className="pointer-events-none absolute end-2 size-4 text-muted-foreground" aria-hidden />
+      <Sun
+        className="pointer-events-none absolute end-2 size-4 text-muted-foreground"
+        aria-hidden
+      />
       <Moon
         className="pointer-events-none absolute start-2 size-4 text-muted-foreground"
         aria-hidden

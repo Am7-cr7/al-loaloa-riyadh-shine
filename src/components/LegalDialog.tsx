@@ -32,8 +32,6 @@ export function LegalDialog({ children }: { children: ReactNode }) {
         </DialogHeader>
 
         <div className="space-y-6 text-sm leading-7 text-muted-foreground">
-
-
           <section>
             <h3 className="mb-1 font-bold text-foreground">١. البيانات التي نجمعها</h3>
             <p>
@@ -44,11 +42,14 @@ export function LegalDialog({ children }: { children: ReactNode }) {
           </section>
 
           <section>
-            <h3 className="mb-1 font-bold text-foreground">٢. ملفات تعريف الارتباط وأدوات القياس</h3>
+            <h3 className="mb-1 font-bold text-foreground">
+              ٢. ملفات تعريف الارتباط وأدوات القياس
+            </h3>
             <p>
               نستخدم — بعد موافقتك فقط — أدوات قياس وإعلانات من أطراف ثالثة:{" "}
               <strong className="text-foreground">Google Analytics 4 و Google Tag Manager</strong>{" "}
-              للتحليلات، و<strong className="text-foreground">Meta (Facebook / Instagram) Pixel</strong>،{" "}
+              للتحليلات، و
+              <strong className="text-foreground">Meta (Facebook / Instagram) Pixel</strong>،{" "}
               <strong className="text-foreground">TikTok Pixel</strong>، و
               <strong className="text-foreground">Snapchat Pixel</strong> لقياس أداء الحملات
               الإعلانية وإعادة الاستهداف. تُرسل لهذه المنصات بيانات فنية مثل معرّف الكوكيز، عنوان
@@ -69,8 +70,7 @@ export function LegalDialog({ children }: { children: ReactNode }) {
             <h3 className="mb-1 font-bold text-foreground">٤. مشاركة البيانات والاحتفاظ بها</h3>
             <p>
               لا نبيع بياناتك الشخصية. تُشارك البيانات فقط مع مزوّدي أدوات القياس المذكورين أعلاه
-              ووفق سياساتهم، وتُحفظ بيانات التواصل لدينا للمدة اللازمة لتقديم الخدمة ومتابعة
-              الضمان.
+              ووفق سياساتهم، وتُحفظ بيانات التواصل لدينا للمدة اللازمة لتقديم الخدمة ومتابعة الضمان.
             </p>
           </section>
 
