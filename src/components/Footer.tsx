@@ -34,6 +34,23 @@ export function Footer() {
                 سياسة الخصوصية
               </Link>
             </li>
+            <li>
+              {/* Full privacy + terms notice required by the ad platforms */}
+              <LegalDialog>
+                <button type="button" className="transition hover:text-gold">
+                  سياسة الخصوصية وشروط الاستخدام
+                </button>
+              </LegalDialog>
+            </li>
+            <li>
+              <button
+                type="button"
+                onClick={openCookieSettings}
+                className="transition hover:text-gold"
+              >
+                إعدادات الكوكيز
+              </button>
+            </li>
           </ul>
         </div>
 
