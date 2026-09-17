@@ -134,12 +134,19 @@ function initMarketing() {
     ];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const ttq: any = { _i: {}, _t: {}, _o: {}, _q: [] };
-    methods.forEach((m) => {
-      ttq[m] = (...args: unknown[]) => {
-        if (!Array.isArray(ttq._q)) ttq._q = [];
-        ttq._q.push([m, ...args]);
-      };
-    });
+    // `push` keeps the object compatible with the official TikTok snippet,
+    // which GTM may also inject and which calls ttq.push / ttq.setAndDefer.
+    ttq.push = (...args: unknown[]) => ttq._q.push(...args);
+    ttq.setAndDefer = (target: any, method: string) => {
+      target[method] = (...args: unknown[]) => target.push([method, ...args]);
+    };
+    ttq.instance = (id: string) => {
+      const inst = ttq._i[id] || [];
+      methods.forEach((m) => ttq.setAndDefer(inst, m));
+      return inst;
+    };
+    ttq.load = () => {};
+    methods.forEach((m) => ttq.setAndDefer(ttq, m));
     window.ttq = ttq;
     loadScript(
       `https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=${TRACKING_IDS.tiktokPixel}&lib=ttq`,
