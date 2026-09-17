@@ -137,6 +137,7 @@ function initMarketing() {
     // `push` keeps the object compatible with the official TikTok snippet,
     // which GTM may also inject and which calls ttq.push / ttq.setAndDefer.
     ttq.push = (...args: unknown[]) => ttq._q.push(...args);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ttq.setAndDefer = (target: any, method: string) => {
       target[method] = (...args: unknown[]) => target.push([method, ...args]);
     };
