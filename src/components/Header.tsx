@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, Phone, MessageCircle, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
 import { trackCall, trackWhatsApp } from "@/lib/tracking";
 import { SocialLinks } from "./SocialLinks";
+import { WhatsAppIcon } from "./WhatsAppIcon";
+import { ThemeToggle } from "./ThemeToggle";
 
 /** Sticky site header: menu, quick contact icons and the brand mark. */
 export function Header() {
