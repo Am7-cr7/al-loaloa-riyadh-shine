@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, Phone, MessageCircle, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
 import { trackCall, trackWhatsApp } from "@/lib/tracking";
 import { SocialLinks } from "./SocialLinks";
+import { WhatsAppIcon } from "./WhatsAppIcon";
+import { ThemeToggle } from "./ThemeToggle";
 
 /** Sticky site header: menu, quick contact icons and the brand mark. */
 export function Header() {
@@ -30,7 +32,7 @@ export function Header() {
             onClick={() => trackWhatsApp("header")}
             className="grid size-10 place-items-center rounded-full text-whatsapp transition hover:brightness-125"
           >
-            <MessageCircle className="size-6" />
+            <WhatsAppIcon className="size-6" />
           </a>
           <a
             href={SITE.phoneHref}
@@ -57,9 +59,12 @@ export function Header() {
           </nav>
         </div>
 
-        <Link to="/" className="font-display text-2xl font-extrabold text-gradient-gold">
-          {SITE.nameAr}
-        </Link>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <Link to="/" className="font-display text-2xl font-extrabold text-gradient-gold">
+            {SITE.nameAr}
+          </Link>
+        </div>
       </div>
 
       {/* Mobile drawer */}

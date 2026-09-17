@@ -3,6 +3,8 @@ import { Clock, MapPin, Phone } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
 import { trackCall } from "@/lib/tracking";
 import { SocialLinks } from "./SocialLinks";
+import { LegalDialog } from "./LegalDialog";
+import { openCookieSettings } from "./CookieConsent";
 
 /** Site footer with contact details, navigation and social links. */
 export function Footer() {
@@ -31,6 +33,23 @@ export function Footer() {
               <Link to="/privacy-policy" className="transition hover:text-gold">
                 سياسة الخصوصية
               </Link>
+            </li>
+            <li>
+              {/* Full privacy + terms notice required by the ad platforms */}
+              <LegalDialog>
+                <button type="button" className="transition hover:text-gold">
+                  سياسة الخصوصية وشروط الاستخدام
+                </button>
+              </LegalDialog>
+            </li>
+            <li>
+              <button
+                type="button"
+                onClick={openCookieSettings}
+                className="transition hover:text-gold"
+              >
+                إعدادات الكوكيز
+              </button>
             </li>
           </ul>
         </div>

@@ -101,7 +101,9 @@ export function CookieConsent() {
               <button
                 type="button"
                 onClick={() =>
-                  manage ? save({ analytics, marketing }) : save({ analytics: true, marketing: true })
+                  manage
+                    ? save({ analytics, marketing })
+                    : save({ analytics: true, marketing: true })
                 }
                 className="rounded-xl bg-gold px-5 py-2.5 text-sm font-bold text-primary-foreground transition hover:brightness-110"
               >
