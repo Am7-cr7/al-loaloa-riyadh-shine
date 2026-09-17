@@ -14,7 +14,9 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FloatingButtons } from "@/components/FloatingButtons";
+import { CookieConsent } from "@/components/CookieConsent";
 import { initTracking, TRACKING_IDS } from "@/lib/tracking";
+import { THEME_INIT_SCRIPT } from "@/lib/theme";
 
 function NotFoundComponent() {
   return (
@@ -192,6 +194,7 @@ function RootComponent() {
         </main>
         <Footer />
         <FloatingButtons />
+        <CookieConsent />
       </div>
     </QueryClientProvider>
   );
