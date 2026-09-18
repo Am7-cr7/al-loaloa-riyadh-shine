@@ -1,32 +1,21 @@
-# مراجعة الموقع — ملاحظات وإصلاحات
+# إصلاحات SEO وOpen Graph النهائية قبل الإنتاج
 
-## النتيجة العامة
-الموقع يعمل بلا أخطاء تشغيل: لا أخطاء وحدة التحكم، لا أخطاء TypeScript، والبناء نظيف. التتبع والموافقة على الكوكيز يعملان كما صُمما. لكن توجد 4 ملاحظات جودة تستحق الإصلاح قبل النشر:
+الموقع يعمل بلا أخطاء تشغيل. هذه 4 إصلاحات دقيقة للتهيئة النهائية — دون أي تغيير في الواجهة.
 
-## الملاحظات (خطأ / تحسين)
+## 1. روابط خريطة الموقع مطلقة
+`public/sitemap.xml`: كل `<loc>` حالياً نسبي (`/services` …) — تحويلها جميعاً إلى `https://alloaloariyadh.com/...`.
 
-1. **خريطة الموقع غير صالحة (خطأ SEO حقيقي)**
-   `public/sitemap.xml` يستخدم روابط نسبية (`<loc>/</loc>`) بينما معيار sitemap يشترط روابط مطلقة. Google سيرفض أو يتجاهل الملف.
-   → تحويل كل `<loc>` إلى `https://alloaloariyadh.com/...`.
+## 2. robots.txt
+إلحاق السطر التالي في نهاية `public/robots.txt`:
+`Sitemap: https://alloaloariyadh.com/sitemap.xml`
 
-2. **robots.txt ناقص سطر الخريطة**
-   → إضافة `Sitemap: https://alloaloariyadh.com/sitemap.xml`.
+## 3. نطاق JSON-LD (LocalBusiness)
+في `src/routes/__root.tsx`: تحديث `@id` من `https://alloaloa.sa/#business` إلى `https://alloaloariyadh.com/#business` وإضافة حقل `url` بنفس النطاق.
 
-3. **نطاق قديم في بيانات LocalBusiness**
-   حقل `@id` في JSON-LD داخل `src/routes/__root.tsx` ما زال يشير إلى `https://alloaloa.sa/#business` بينما النطاق الحالي هو `alloaloariyadh.com` — تضارب يربك محركات البحث.
-   → تحديثه إلى `https://alloaloariyadh.com/#business`.
+## 4. وسوم Open Graph لكل الصفحات الفرعية
+إضافة إلى رؤوس `/services` و`/gallery` و`/faq` و`/privacy-policy`:
+- `og:url` و`twitter:url` مطلقة لكل صفحة (مثل `https://alloaloariyadh.com/services`)
+- `og:image` و`twitter:image` = `https://alloaloariyadh.com/og-image.jpg`
 
-4. **بيانات Open Graph موجودة فقط على الصفحة الرئيسية**
-   الصفحات الأخرى (`/services`, `/gallery`, `/faq`, `/privacy-policy`) تملك عنواناً ووصفاً خاصاً لكنها لا تضيف `og:url`/`og:image` ذاتية الإشارة — عند مشاركة أي منها سيلتقط المشارِك صورة/رابطاً غير مضمون.
-   → إضافة `og:url` + `og:image` (+twitter المقابل) لكل صفحة.
-
-## ملاحظات مقصودة (لا تُغيَّر)
-- تحميل سكربت GA4 مع «رفض افتراضي» للتخزين قبل موافقة الزائر هو نمط Consent Mode v2 الرسمي من Google — ليس خطأ.
-- تبديل الوضع الفاتح/الداكن مع `suppressHydrationWarning` مقصود لمنع وميض الثيم.
-
-## خطوات التنفيذ
-1. تعديل `public/sitemap.xml` (روابط مطلقة).
-2. تعديل `public/robots.txt` (سطر Sitemap).
-3. تعديل `@id` في `src/routes/__root.tsx`.
-4. إضافة og/twitter url+image في رؤوس الصفحات الأربع الأخرى.
-5. تحقق: `bunx tsgo --noEmit` + فحص الصفحات بلا أخطاء.
+## تحقق
+`bunx tsgo --noEmit` نظيف + فحص الصفحات والوسوم عبر المتصفح بلا أخطاء.
