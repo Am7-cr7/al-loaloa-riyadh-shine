@@ -15,8 +15,8 @@
 import { getConsent, onConsentChange, type ConsentState } from "./consent";
 
 export const TRACKING_IDS = {
-  /** GA4 — falls back to the GTM-loaded tag when no env value is provided. */
-  ga4: import.meta.env["VITE_GA4_MEASUREMENT_ID"] as string | undefined,
+  /** GA4 measurement ID is public and intentionally fixed for static deployments. */
+  ga4: "G-FG73JGYH25",
   gtm: "GTM-NKGNF2HL",
   metaPixel: "1117048000774799",
   snapPixel: "bf312e98-ef1f-4e9e-83f1-ae9dec782159",
