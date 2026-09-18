@@ -114,7 +114,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": ["LocalBusiness", "AutoWash"],
-          "@id": "https://alloaloa.sa/#business",
+          "@id": "https://alloaloariyadh.com/#business",
+          url: "https://alloaloariyadh.com/",
           name: "مغسلة اللؤلؤة",
           alternateName: "Al-Loaloa Mobile Car Wash",
           description:
