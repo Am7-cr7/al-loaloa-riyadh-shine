@@ -97,6 +97,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
     scripts: [
+      // Google Consent Mode defaults to denied until the visitor accepts analytics cookies.
+      {
+        children:
+          "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});",
+      },
+      {
+        id: "ga4-script",
+        src: "https://www.googletagmanager.com/gtag/js?id=G-FG73JGYH25",
+        async: true,
+      },
       // Sets the stored light/dark theme before first paint (no flash).
       { children: THEME_INIT_SCRIPT },
       {

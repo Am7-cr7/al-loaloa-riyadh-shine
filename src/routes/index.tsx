@@ -26,22 +26,30 @@ export const Route = createFileRoute("/")({
         content:
           "غسيل سيارات بالبخار الرياض, مغسلة متنقلة الرياض, تلميع سيارات الرياض, تنظيف داخلي للسيارة, بوليش سيارات, حماية جلد السيارة, غسيل سيارات في الموقع, مغسلة اللؤلؤة",
       },
-      { property: "og:title", content: "غسيل وتلميع سيارات بالبخار متنقل بالرياض | مغسلة اللؤلؤة" },
+      {
+        property: "og:title",
+        content: "اللؤلؤة | غسيل وتلميع سيارات بالبخار متنقل بالرياض",
+      },
       {
         property: "og:description",
-        content: "تلميع وغسيل عميق بالبخار في موقعك — الرياض، خدمة متنقلة على مدار الساعة.",
+        content:
+          "خدمة عناية فاخرة بسيارتك عند باب بيتك في الرياض - نرجع لسيارتك لمعة الوكالة.",
       },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://alloaloariyadh.com/" },
+      { property: "og:image", content: "https://alloaloariyadh.com/og-image.jpg" },
+      { name: "twitter:url", content: "https://alloaloariyadh.com/" },
       {
         name: "twitter:title",
-        content: "غسيل وتلميع سيارات بالبخار متنقل بالرياض | مغسلة اللؤلؤة",
+        content: "اللؤلؤة | غسيل وتلميع سيارات بالبخار متنقل بالرياض",
       },
       {
         name: "twitter:description",
-        content: "تلميع وغسيل عميق بالبخار في موقعك — الرياض، خدمة متنقلة على مدار الساعة.",
+        content:
+          "خدمة عناية فاخرة بسيارتك عند باب بيتك في الرياض - نرجع لسيارتك لمعة الوكالة.",
       },
+      { name: "twitter:image", content: "https://alloaloariyadh.com/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://alloaloariyadh.com/" }],
   }),
 });
 
