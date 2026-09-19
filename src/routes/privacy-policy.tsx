@@ -16,9 +16,12 @@ export const Route = createFileRoute("/privacy-policy")({
         property: "og:description",
         content: "كيف نتعامل مع بياناتك عند استخدام موقع اللؤلؤة.",
       },
-      { property: "og:url", content: "/privacy-policy" },
+      { property: "og:url", content: "https://alloaloariyadh.com/privacy-policy" },
+      { name: "twitter:url", content: "https://alloaloariyadh.com/privacy-policy" },
+      { property: "og:image", content: "https://alloaloariyadh.com/og-image.jpg" },
+      { name: "twitter:image", content: "https://alloaloariyadh.com/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/privacy-policy" }],
+    links: [{ rel: "canonical", href: "https://alloaloariyadh.com/privacy-policy" }],
   }),
 });
 

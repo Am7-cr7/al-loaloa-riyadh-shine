@@ -18,9 +18,12 @@ export const Route = createFileRoute("/services")({
         property: "og:description",
         content: "باقات عناية بالسيارات بالبخار تصلك في موقعك بالرياض.",
       },
-      { property: "og:url", content: "/services" },
+      { property: "og:url", content: "https://alloaloariyadh.com/services" },
+      { name: "twitter:url", content: "https://alloaloariyadh.com/services" },
+      { property: "og:image", content: "https://alloaloariyadh.com/og-image.jpg" },
+      { name: "twitter:image", content: "https://alloaloariyadh.com/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: "https://alloaloariyadh.com/services" }],
   }),
 });
 
