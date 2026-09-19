@@ -18,9 +18,12 @@ export const Route = createFileRoute("/gallery")({
         property: "og:description",
         content: "نتائج حقيقية لتنظيف السيارات بالبخار في الرياض.",
       },
-      { property: "og:url", content: "/gallery" },
+      { property: "og:url", content: "https://alloaloariyadh.com/gallery" },
+      { name: "twitter:url", content: "https://alloaloariyadh.com/gallery" },
+      { property: "og:image", content: "https://alloaloariyadh.com/og-image.jpg" },
+      { name: "twitter:image", content: "https://alloaloariyadh.com/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/gallery" }],
+    links: [{ rel: "canonical", href: "https://alloaloariyadh.com/gallery" }],
   }),
 });
 

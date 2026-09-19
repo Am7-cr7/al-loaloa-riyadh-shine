@@ -23,9 +23,12 @@ export const Route = createFileRoute("/faq")({
         property: "og:description",
         content: "كل ما تحتاج معرفته عن خدمة الغسيل بالبخار المتنقلة في الرياض.",
       },
-      { property: "og:url", content: "/faq" },
+      { property: "og:url", content: "https://alloaloariyadh.com/faq" },
+      { name: "twitter:url", content: "https://alloaloariyadh.com/faq" },
+      { property: "og:image", content: "https://alloaloariyadh.com/og-image.jpg" },
+      { name: "twitter:image", content: "https://alloaloariyadh.com/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "/faq" }],
+    links: [{ rel: "canonical", href: "https://alloaloariyadh.com/faq" }],
     scripts: [
       {
         type: "application/ld+json",

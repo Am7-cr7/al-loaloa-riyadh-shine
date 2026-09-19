@@ -3,6 +3,7 @@ import { Clock, ShieldCheck, Sparkles, Truck, Users, Star } from "lucide-react";
 import heroImage from "@/assets/hero.jpg";
 import { CallButton, WhatsAppButton } from "@/components/CtaButtons";
 import { BeforeAfter } from "@/components/BeforeAfter";
+import { CarCategories } from "@/components/CarCategories";
 import { GALLERY, SERVICES, FAQS } from "@/lib/content";
 import {
   Accordion,
@@ -102,6 +103,9 @@ function Home() {
           </ul>
         </div>
       </section>
+
+      {/* ---------------- Car categories ---------------- */}
+      <CarCategories />
 
       {/* ---------------- Services preview ---------------- */}
       <section className="mx-auto max-w-6xl px-4 py-16">
