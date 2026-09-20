@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdvisorRouteImport } from './routes/advisor'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
@@ -18,6 +19,11 @@ import { Route as ServicesRouteImport } from './routes/services'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdvisorRoute = AdvisorRouteImport.update({
+  id: '/advisor',
+  path: '/advisor',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -43,6 +49,7 @@ const ServicesRoute = ServicesRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/advisor': typeof AdvisorRoute
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/advisor': typeof AdvisorRoute
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/advisor': typeof AdvisorRoute
   '/faq': typeof FaqRoute
   '/gallery': typeof GalleryRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -65,14 +74,23 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/faq' | '/gallery' | '/privacy-policy' | '/services'
+  fullPaths:
+    '/' | '/advisor' | '/faq' | '/gallery' | '/privacy-policy' | '/services'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/faq' | '/gallery' | '/privacy-policy' | '/services'
-  id: '__root__' | '/' | '/faq' | '/gallery' | '/privacy-policy' | '/services'
+  to: '/' | '/advisor' | '/faq' | '/gallery' | '/privacy-policy' | '/services'
+  id:
+    | '__root__'
+    | '/'
+    | '/advisor'
+    | '/faq'
+    | '/gallery'
+    | '/privacy-policy'
+    | '/services'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdvisorRoute: typeof AdvisorRoute
   FaqRoute: typeof FaqRoute
   GalleryRoute: typeof GalleryRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
@@ -86,6 +104,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/advisor': {
+      id: '/advisor'
+      path: '/advisor'
+      fullPath: '/advisor'
+      preLoaderRoute: typeof AdvisorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -121,6 +146,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdvisorRoute: AdvisorRoute,
   FaqRoute: FaqRoute,
   GalleryRoute: GalleryRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
