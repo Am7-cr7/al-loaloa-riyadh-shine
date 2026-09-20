@@ -33,8 +33,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:description",
-        content:
-          "خدمة عناية فاخرة بسيارتك عند باب بيتك في الرياض - نرجع لسيارتك لمعة الوكالة.",
+        content: "خدمة عناية فاخرة بسيارتك عند باب بيتك في الرياض - نرجع لسيارتك لمعة الوكالة.",
       },
       { property: "og:url", content: "https://alloaloariyadh.com/" },
       { property: "og:image", content: "https://alloaloariyadh.com/og-image.jpg" },
@@ -45,8 +44,7 @@ export const Route = createFileRoute("/")({
       },
       {
         name: "twitter:description",
-        content:
-          "خدمة عناية فاخرة بسيارتك عند باب بيتك في الرياض - نرجع لسيارتك لمعة الوكالة.",
+        content: "خدمة عناية فاخرة بسيارتك عند باب بيتك في الرياض - نرجع لسيارتك لمعة الوكالة.",
       },
       { name: "twitter:image", content: "https://alloaloariyadh.com/og-image.jpg" },
     ],
