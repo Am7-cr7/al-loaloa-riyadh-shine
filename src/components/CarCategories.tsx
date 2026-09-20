@@ -64,7 +64,10 @@ export function CarCategories() {
       <div className="container mx-auto px-4">
         <header className="mb-10 text-center">
           <span className="text-sm font-bold text-[#D4AF37]">فئات السيارات</span>
-          <h2 id="car-categories-title" className="mt-2 text-3xl font-extrabold text-white md:text-4xl">
+          <h2
+            id="car-categories-title"
+            className="mt-2 text-3xl font-extrabold text-white md:text-4xl"
+          >
             اختر نوع سيارتك لتحديد الباقة
           </h2>
         </header>

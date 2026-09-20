@@ -33,8 +33,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:description",
-        content:
-          "خدمة عناية فاخرة بسيارتك عند باب بيتك في الرياض - نرجع لسيارتك لمعة الوكالة.",
+        content: "خدمة عناية فاخرة بسيارتك عند باب بيتك في الرياض - نرجع لسيارتك لمعة الوكالة.",
       },
       { property: "og:url", content: "https://alloaloariyadh.com/" },
       { property: "og:image", content: "https://alloaloariyadh.com/og-image.jpg" },
@@ -45,8 +44,7 @@ export const Route = createFileRoute("/")({
       },
       {
         name: "twitter:description",
-        content:
-          "خدمة عناية فاخرة بسيارتك عند باب بيتك في الرياض - نرجع لسيارتك لمعة الوكالة.",
+        content: "خدمة عناية فاخرة بسيارتك عند باب بيتك في الرياض - نرجع لسيارتك لمعة الوكالة.",
       },
       { name: "twitter:image", content: "https://alloaloariyadh.com/og-image.jpg" },
     ],
@@ -144,7 +142,13 @@ function Home() {
             </article>
           ))}
         </div>
-        <div className="mt-8 text-center">
+        <div className="mt-8 flex flex-wrap justify-center gap-3 text-center">
+          <Link
+            to="/advisor"
+            className="inline-flex items-center gap-2 rounded-xl bg-gold px-6 py-3 text-sm font-bold text-primary-foreground transition hover:brightness-110"
+          >
+            <Sparkles className="size-4" /> اعرف باقتك المناسبة بالذكاء الاصطناعي
+          </Link>
           <Link
             to="/services"
             className="inline-flex rounded-xl border border-gold/50 px-6 py-3 text-sm font-bold text-gold transition hover:bg-gold hover:text-primary-foreground"
