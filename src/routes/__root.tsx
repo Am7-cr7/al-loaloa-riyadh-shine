@@ -15,7 +15,6 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FloatingButtons } from "@/components/FloatingButtons";
 import { CookieConsent } from "@/components/CookieConsent";
-import { initTracking, TRACKING_IDS } from "@/lib/tracking";
 import { THEME_INIT_SCRIPT } from "@/lib/theme";
 
 function NotFoundComponent() {
@@ -97,16 +96,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
     scripts: [
-      // Google Consent Mode defaults to denied until the visitor accepts analytics cookies.
-      {
-        children:
-          "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});",
-      },
-      {
-        id: "ga4-script",
-        src: "https://www.googletagmanager.com/gtag/js?id=G-FG73JGYH25",
-        async: true,
-      },
+      // TRACKING PIXEL PLACEHOLDER: Google Analytics (GA4) / Google Tag Manager
       // Sets the stored light/dark theme before first paint (no flash).
       { children: THEME_INIT_SCRIPT },
       {
@@ -171,16 +161,7 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        {/* GTM noscript fallback for users without JavaScript */}
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${TRACKING_IDS.gtm}`}
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-            title="gtm"
-          />
-        </noscript>
+        {/* TRACKING PIXEL PLACEHOLDER: Google Tag Manager (noscript) */}
         {children}
         <Scripts />
       </body>
@@ -191,10 +172,7 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
-  // Analytics + pixels are injected once, on the client only.
-  useEffect(() => {
-    initTracking();
-  }, []);
+  // TRACKING PIXEL PLACEHOLDER: Meta / Snapchat / TikTok pixel initialisation
 
   return (
     <QueryClientProvider client={queryClient}>

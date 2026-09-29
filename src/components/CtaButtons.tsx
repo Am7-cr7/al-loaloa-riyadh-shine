@@ -1,6 +1,5 @@
 import { Phone } from "lucide-react";
 import { SITE } from "@/lib/site";
-import { trackCall, trackWhatsApp } from "@/lib/tracking";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { cn } from "@/lib/utils";
 
@@ -16,8 +15,7 @@ export function WhatsAppButton({ location, className, full, label }: Props) {
     <a
       href={SITE.whatsapp}
       target="_blank"
-      rel="noopener noreferrer"
-      onClick={() => trackWhatsApp(location)}
+      rel="noopener noreferrer" /* TRACKING PIXEL PLACEHOLDER: click event */
       className={cn(
         "inline-flex items-center justify-center gap-3 rounded-xl bg-whatsapp px-7 py-4 text-base font-bold text-whatsapp-foreground shadow-[var(--shadow-green)] transition hover:brightness-110 active:scale-[0.98]",
         full && "w-full",
@@ -33,8 +31,7 @@ export function WhatsAppButton({ location, className, full, label }: Props) {
 export function CallButton({ location, className, full, label }: Props) {
   return (
     <a
-      href={SITE.phoneHref}
-      onClick={() => trackCall(location)}
+      href={SITE.phoneHref} /* TRACKING PIXEL PLACEHOLDER: click event */
       className={cn(
         "inline-flex items-center justify-center gap-3 rounded-xl border-2 border-gold px-7 py-4 text-base font-bold text-gold transition hover:bg-gold hover:text-primary-foreground active:scale-[0.98]",
         full && "w-full",

@@ -5,7 +5,6 @@ import { useMutation } from "@tanstack/react-query";
 import { Loader2, Sparkles, Upload, X } from "lucide-react";
 import { recommendPackage, type AdvisorResult } from "@/lib/advisor.functions";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
-import { trackWhatsApp } from "@/lib/tracking";
 
 export const Route = createFileRoute("/advisor")({
   component: AdvisorPage,
@@ -170,8 +169,7 @@ function AdvisorPage() {
           <a
             href={waHref}
             target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackWhatsApp("advisor_result")}
+            rel="noopener noreferrer" /* TRACKING PIXEL PLACEHOLDER: click event */
             className="mt-7 flex w-full items-center justify-center gap-2 rounded-xl bg-whatsapp py-4 font-bold text-white transition hover:brightness-110"
           >
             <WhatsAppIcon className="size-5" /> أرسل التوصية عبر واتساب
