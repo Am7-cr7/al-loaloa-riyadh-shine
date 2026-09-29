@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Clock, MapPin, Phone } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
-import { trackCall } from "@/lib/tracking";
 import { SocialLinks } from "./SocialLinks";
 import { LegalDialog } from "./LegalDialog";
 import { openCookieSettings } from "./CookieConsent";
@@ -60,8 +59,7 @@ export function Footer() {
             <li className="flex items-center gap-2">
               <Phone className="size-4 text-gold" />
               <a
-                href={SITE.phoneHref}
-                onClick={() => trackCall("footer")}
+                href={SITE.phoneHref} /* TRACKING PIXEL PLACEHOLDER: click event */
                 dir="ltr"
                 className="transition hover:text-gold"
               >

@@ -1,6 +1,5 @@
 import { Facebook, Ghost, Music2 } from "lucide-react";
 import { SITE } from "@/lib/site";
-import { trackSocial } from "@/lib/tracking";
 import { cn } from "@/lib/utils";
 
 /** Social icon row — every click is reported to the pixels via trackSocial. */
@@ -19,8 +18,7 @@ export function SocialLinks({ location, className }: { location: string; classNa
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={label}
-          onClick={() => trackSocial(key, location)}
+          aria-label={label} /* TRACKING PIXEL PLACEHOLDER: click event */
           className="grid size-10 place-items-center rounded-full border border-gold/40 text-gold transition hover:bg-gold hover:text-primary-foreground"
         >
           <Icon className="size-5" aria-hidden />

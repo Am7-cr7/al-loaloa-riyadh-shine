@@ -2,7 +2,6 @@ import carSedan from "@/assets/car-sedan.jpg";
 import carCrossover from "@/assets/car-crossover.jpg";
 import carSuv from "@/assets/car-suv.jpg";
 import { WhatsAppIcon } from "./WhatsAppIcon";
-import { trackWhatsApp } from "@/lib/tracking";
 
 /**
  * Car category picker — each card deep-links to WhatsApp with a prefilled
@@ -96,8 +95,7 @@ export function CarCategories() {
                 <a
                   href={c.href}
                   target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackWhatsApp(`car_category_${c.id}`)}
+                  rel="noopener noreferrer" /* TRACKING PIXEL PLACEHOLDER: click event */
                   className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] py-3 font-bold text-white transition-colors hover:bg-[#1DA851]"
                 >
                   <WhatsAppIcon className="size-5" />
