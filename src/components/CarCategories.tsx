@@ -6,7 +6,7 @@ import { WhatsAppIcon } from "./WhatsAppIcon";
 /**
  * Car category picker — each card deep-links to WhatsApp with a prefilled
  * message naming the category, so the team knows which pricing tier applies.
- * Every click fires the shared Lead/Contact tracking before navigation.
+ * TRACKING PIXEL PLACEHOLDER: Lead/Contact event on click.
  */
 
 type CarCategory = {

@@ -2,7 +2,7 @@ import { Facebook, Ghost, Music2 } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
-/** Social icon row — every click is reported to the pixels via trackSocial. */
+/** Social icon row — click tracking removed (see placeholders). */
 export function SocialLinks({ location, className }: { location: string; className?: string }) {
   const items = [
     { key: "snapchat", label: "سناب شات", href: SITE.social.snapchat, Icon: Ghost },
