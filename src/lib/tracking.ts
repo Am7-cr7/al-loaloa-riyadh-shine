@@ -88,30 +88,45 @@ function initMarketing() {
   win.snaptr("init", SNAP_PIXEL_ID, {});
   win.snaptr("track", "PAGE_VIEW");
 
-  // TikTok Pixel (official setAndDefer stub)
+  // TikTok Pixel (official setAndDefer stub — ttq is an array queue)
   win.TiktokAnalyticsObject = "ttq";
-  const ttq = (win.ttq = win.ttq || ({} as NonNullable<W["ttq"]>)) as Record<string, unknown> & {
+  type Ttq = unknown[] & {
+    [k: string]: unknown;
     _i?: Record<string, unknown>;
     _t?: Record<string, number>;
-    _o?: Record<string, unknown>;
   };
-  const methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"];
-  const queue: unknown[] = (ttq.__q as unknown[]) || [];
-  ttq.__q = queue;
-  ttq.push = (...a: unknown[]) => queue.push(...a);
-  const setAndDefer = (t: Record<string, unknown>, e: string) => {
-    t[e] = (...args: unknown[]) => queue.push([e, ...args]);
-  };
-  methods.forEach((m) => setAndDefer(ttq, m));
-  ttq.load = (id: string) => {
-    ttq._i = ttq._i || {};
-    ttq._i[id] = [];
-    ttq._t = ttq._t || {};
-    ttq._t[id] = Date.now();
-    addScript(`https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=${id}&lib=ttq`, "tiktok-pixel");
-  };
-  (ttq.load as (id: string) => void)(TIKTOK_PIXEL_ID);
-  (ttq.page as Fn)();
+  const ttq = (win.ttq || []) as unknown as Ttq;
+  win.ttq = ttq as unknown as W["ttq"];
+  const methods = [
+    "page",
+    "track",
+    "identify",
+    "instances",
+    "debug",
+    "on",
+    "off",
+    "once",
+    "ready",
+    "alias",
+    "group",
+    "enableCookie",
+    "disableCookie",
+    "holdConsent",
+    "revokeConsent",
+    "grantConsent",
+  ];
+  methods.forEach((m) => {
+    ttq[m] = (...args: unknown[]) => ttq.push([m, ...args]);
+  });
+  ttq._i = ttq._i || {};
+  ttq._i[TIKTOK_PIXEL_ID] = [];
+  ttq._t = ttq._t || {};
+  ttq._t[TIKTOK_PIXEL_ID] = Date.now();
+  addScript(
+    `https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=${TIKTOK_PIXEL_ID}&lib=ttq`,
+    "tiktok-pixel",
+  );
+  (ttq["page"] as Fn)();
 }
 
 function apply() {
