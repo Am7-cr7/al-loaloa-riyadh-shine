@@ -96,7 +96,7 @@ function initMarketing() {
     _t?: Record<string, number>;
   };
   const ttq = (win.ttq || []) as unknown as Ttq;
-  win.ttq = ttq as unknown as W["ttq"];
+  win.ttq = ttq as unknown as NonNullable<W["ttq"]>;
   const methods = [
     "page",
     "track",
