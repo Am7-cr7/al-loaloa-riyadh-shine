@@ -5,6 +5,7 @@ import {
   createRootRouteWithContext,
   useRouter,
   HeadContent,
+  type ErrorComponentProps,
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
@@ -15,6 +16,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FloatingButtons } from "@/components/FloatingButtons";
 import { CookieConsent } from "@/components/CookieConsent";
+import { initTracking } from "@/lib/tracking";
 import { THEME_INIT_SCRIPT } from "@/lib/theme";
 
 function NotFoundComponent() {
@@ -37,7 +39,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -96,7 +98,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
     scripts: [
-      // TRACKING PIXEL PLACEHOLDER: Google Analytics (GA4) / Google Tag Manager
       // Sets the stored light/dark theme before first paint (no flash).
       { children: THEME_INIT_SCRIPT },
       {
@@ -161,7 +162,6 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        {/* TRACKING PIXEL PLACEHOLDER: Google Tag Manager (noscript) */}
         {children}
         <Scripts />
       </body>
@@ -172,7 +172,8 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
-  // TRACKING PIXEL PLACEHOLDER: Meta / Snapchat / TikTok pixel initialisation
+  // Loads GTM/GA4 and the ad pixels once the visitor has given consent.
+  useEffect(() => initTracking(), []);
 
   return (
     <QueryClientProvider client={queryClient}>

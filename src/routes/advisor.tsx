@@ -1,3 +1,4 @@
+import { trackLead } from "@/lib/tracking";
 import { useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
@@ -169,7 +170,8 @@ function AdvisorPage() {
           <a
             href={waHref}
             target="_blank"
-            rel="noopener noreferrer" /* TRACKING PIXEL PLACEHOLDER: click event */
+            rel="noopener noreferrer"
+            onClick={() => trackLead("whatsapp", "advisor_result")}
             className="mt-7 flex w-full items-center justify-center gap-2 rounded-xl bg-whatsapp py-4 font-bold text-white transition hover:brightness-110"
           >
             <WhatsAppIcon className="size-5" /> أرسل التوصية عبر واتساب

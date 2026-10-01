@@ -1,3 +1,4 @@
+import { trackLead } from "@/lib/tracking";
 import { Facebook, Ghost, Music2 } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -18,7 +19,8 @@ export function SocialLinks({ location, className }: { location: string; classNa
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={label} /* TRACKING PIXEL PLACEHOLDER: click event */
+          aria-label={label}
+          onClick={() => trackLead("social", `${location}_${label}`)}
           className="grid size-10 place-items-center rounded-full border border-gold/40 text-gold transition hover:bg-gold hover:text-primary-foreground"
         >
           <Icon className="size-5" aria-hidden />

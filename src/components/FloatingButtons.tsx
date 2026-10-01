@@ -1,5 +1,6 @@
 import { Phone } from "lucide-react";
 import { SITE } from "@/lib/site";
+import { trackLead } from "@/lib/tracking";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
 /** Persistent WhatsApp / Call actions pinned to the bottom of every page. */
@@ -9,7 +10,8 @@ export function FloatingButtons() {
       <a
         href={SITE.whatsapp}
         target="_blank"
-        rel="noopener noreferrer" /* TRACKING PIXEL PLACEHOLDER: click event */
+        rel="noopener noreferrer"
+        onClick={() => trackLead("whatsapp", "floating")}
         aria-label="تواصل عبر واتساب"
         className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-whatsapp py-3 font-bold text-whatsapp-foreground shadow-[var(--shadow-green)] transition hover:brightness-110 md:size-14 md:rounded-full md:py-0"
       >
@@ -17,7 +19,8 @@ export function FloatingButtons() {
         <span className="md:hidden">واتساب</span>
       </a>
       <a
-        href={SITE.phoneHref} /* TRACKING PIXEL PLACEHOLDER: click event */
+        href={SITE.phoneHref}
+        onClick={() => trackLead("call", "floating")}
         aria-label="اتصل الآن"
         className="flex flex-1 items-center justify-center gap-2 rounded-xl border-2 border-gold py-3 font-bold text-gold transition hover:bg-gold hover:text-primary-foreground md:size-14 md:rounded-full md:border-0 md:bg-gold md:text-primary-foreground md:shadow-[var(--shadow-gold)] md:py-0"
       >

@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Clock, MapPin, Phone } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
 import { SocialLinks } from "./SocialLinks";
+import { trackLead } from "@/lib/tracking";
 import { LegalDialog } from "./LegalDialog";
 import { openCookieSettings } from "./CookieConsent";
 
@@ -59,7 +60,8 @@ export function Footer() {
             <li className="flex items-center gap-2">
               <Phone className="size-4 text-gold" />
               <a
-                href={SITE.phoneHref} /* TRACKING PIXEL PLACEHOLDER: click event */
+                href={SITE.phoneHref}
+                onClick={() => trackLead("call", "footer")}
                 dir="ltr"
                 className="transition hover:text-gold"
               >
