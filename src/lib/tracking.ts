@@ -7,7 +7,7 @@
  */
 import { getConsent, onConsentChange } from "./consent";
 
-export const GA4_ID = "__GA4_ID__";
+export const GA4_ID = "G-FG73JGYH25";
 export const GTM_ID = "GTM-NKGNF2HL";
 export const META_PIXEL_ID = "1117048000774799";
 export const TIKTOK_PIXEL_ID = "DAEVOJ3C77UES974LUKG";
@@ -96,10 +96,6 @@ function initMarketing() {
     _o?: Record<string, unknown>;
   };
   const methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"];
-  const q = ttq as unknown as unknown[] & Record<string, unknown>;
-  if (!Array.isArray(ttq)) {
-    // ttq must behave as an array-like queue
-  }
   const queue: unknown[] = (ttq.__q as unknown[]) || [];
   ttq.__q = queue;
   ttq.push = (...a: unknown[]) => queue.push(...a);
@@ -114,7 +110,6 @@ function initMarketing() {
     ttq._t[id] = Date.now();
     addScript(`https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=${id}&lib=ttq`, "tiktok-pixel");
   };
-  void q;
   (ttq.load as (id: string) => void)(TIKTOK_PIXEL_ID);
   (ttq.page as Fn)();
 }

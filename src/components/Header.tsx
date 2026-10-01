@@ -4,6 +4,7 @@ import { Menu, Phone, X } from "lucide-react";
 import { NAV, SITE } from "@/lib/site";
 import { SocialLinks } from "./SocialLinks";
 import { WhatsAppIcon } from "./WhatsAppIcon";
+import { trackLead } from "@/lib/tracking";
 import { ThemeToggle } from "./ThemeToggle";
 
 /** Sticky site header: menu, quick contact icons and the brand mark. */
@@ -27,14 +28,16 @@ export function Header() {
             href={SITE.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="واتساب" /* TRACKING PIXEL PLACEHOLDER: click event */
+            aria-label="واتساب"
+            onClick={() => trackLead("whatsapp", "header")}
             className="grid size-10 place-items-center rounded-full text-whatsapp transition hover:brightness-125"
           >
             <WhatsAppIcon className="size-6" />
           </a>
           <a
             href={SITE.phoneHref}
-            aria-label="اتصال" /* TRACKING PIXEL PLACEHOLDER: click event */
+            aria-label="اتصال"
+            onClick={() => trackLead("call", "header")}
             className="grid size-10 place-items-center rounded-full text-gold transition hover:brightness-125"
           >
             <Phone className="size-6" />

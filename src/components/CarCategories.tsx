@@ -1,12 +1,13 @@
 import carSedan from "@/assets/car-sedan.jpg";
 import carCrossover from "@/assets/car-crossover.jpg";
 import carSuv from "@/assets/car-suv.jpg";
+import { trackLead } from "@/lib/tracking";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 
 /**
  * Car category picker — each card deep-links to WhatsApp with a prefilled
  * message naming the category, so the team knows which pricing tier applies.
- * TRACKING PIXEL PLACEHOLDER: Lead/Contact event on click.
+ * Fires a Lead/Contact conversion on click.
  */
 
 type CarCategory = {
@@ -95,7 +96,8 @@ export function CarCategories() {
                 <a
                   href={c.href}
                   target="_blank"
-                  rel="noopener noreferrer" /* TRACKING PIXEL PLACEHOLDER: click event */
+                  rel="noopener noreferrer"
+                  onClick={() => trackLead("whatsapp", `car_category_${c.id}`)}
                   className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] py-3 font-bold text-white transition-colors hover:bg-[#1DA851]"
                 >
                   <WhatsAppIcon className="size-5" />
