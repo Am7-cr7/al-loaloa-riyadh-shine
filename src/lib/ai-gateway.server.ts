@@ -1,11 +1,8 @@
-/**
- * Lovable AI Gateway helpers (server-only).
- * Captures/resends the gateway run id so model calls stay correlated in usage logs.
- */
+/** Captures and resends the gateway run ID to correlate multi-step model calls. */
 
 const LOVABLE_AIG_RUN_ID_HEADER = "X-Lovable-AIG-Run-ID";
 
-export function createLovableAiGatewayRunIdFetch(initialRunId?: string) {
+export function createGatewayRunIdFetch(initialRunId?: string) {
   let runId = initialRunId?.trim() || undefined;
   let resolveRunId: (value: string | undefined) => void = () => {};
   let runIdResolved = false;

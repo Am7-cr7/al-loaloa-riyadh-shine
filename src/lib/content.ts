@@ -1,11 +1,11 @@
 /** Static Arabic content: service packages, FAQ and gallery items. */
 
-import backseatBefore from "@/assets/backseat-before.jpg.asset.json";
-import backseatAfter from "@/assets/backseat-after.jpg.asset.json";
-import sedanBefore from "@/assets/sedan-before.jpg.asset.json";
-import sedanAfter from "@/assets/sedan-after.jpg.asset.json";
-import seatAfter from "@/assets/seat-after.jpg.asset.json";
-import consoleAfter from "@/assets/console-after.jpg.asset.json";
+import backseatBefore from "@/assets/backseat-before.jpg";
+import backseatAfter from "@/assets/backseat-after.jpg";
+import sedanBefore from "@/assets/sedan-before.jpg";
+import sedanAfter from "@/assets/sedan-after.jpg";
+import seatAfter from "@/assets/seat-after.jpg";
+import consoleAfter from "@/assets/console-after.jpg";
 import pkgExterior from "@/assets/pkg-exterior.jpg";
 import pkgInterior from "@/assets/pkg-interior.jpg";
 import pkgPolish from "@/assets/pkg-polish.jpg";
@@ -89,17 +89,17 @@ export const FAQS = [
 export const GALLERY = [
   {
     title: "المقعد الخلفي",
-    before: backseatBefore.url,
-    after: backseatAfter.url,
+    before: backseatBefore,
+    after: backseatAfter,
   },
   {
     title: "مقاعد أمامية جلد",
-    before: sedanBefore.url,
-    after: sedanAfter.url,
+    before: sedanBefore,
+    after: sedanAfter,
   },
 ] as const;
 
 export const SHOWCASE = [
-  { src: seatAfter.url, title: "إزالة بقع عميقة من الفرش" },
-  { src: consoleAfter.url, title: "تنظيف الكنسول الأوسط" },
+  { src: seatAfter, title: "إزالة بقع عميقة من الفرش" },
+  { src: consoleAfter, title: "تنظيف الكنسول الأوسط" },
 ] as const;
