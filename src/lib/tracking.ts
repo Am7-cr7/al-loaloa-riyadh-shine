@@ -10,7 +10,7 @@ import { getConsent, onConsentChange } from "./consent";
 export const GA4_ID = "G-FG73JGYH25";
 export const GTM_ID = "GTM-NKGNF2HL";
 export const META_PIXEL_ID = "1117048000774799";
-export const TIKTOK_PIXEL_ID = "DAEVOJ3C77UES974LUKG";
+export const TIKTOK_PIXEL_ID = "DAVTNL3C77U27N8GVRG0";
 export const SNAP_PIXEL_ID = "bf312e98-ef1f-4e9e-83f1-ae9dec782159";
 
 type Fn = (...args: unknown[]) => void;
