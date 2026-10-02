@@ -14,7 +14,7 @@ export default defineConfig(({ command }) => ({
       ? [
           nitro({
             preset: "cloudflare-module",
-            output: { dir: "dist", serverDir: "server", publicDir: "client" },
+            output: { dir: ".output", serverDir: "server", publicDir: "client" },
             cloudflare: { nodeCompat: true, deployConfig: true },
           }),
         ]
