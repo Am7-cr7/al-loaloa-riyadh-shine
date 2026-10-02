@@ -1,14 +1,14 @@
 /**
  * "مستشار العناية" — server function that turns a customer's car description
  * (and optionally a photo) into a package recommendation + care tips,
- * using Lovable AI Gateway (OpenAI Responses API).
+ * using the configured AI gateway (OpenAI Responses API).
  */
 
 import { createServerFn } from "@tanstack/react-start";
 import { createOpenAI } from "@ai-sdk/openai";
 import { streamText, Output, NoObjectGeneratedError } from "ai";
 import { z } from "zod";
-import { createLovableAiGatewayRunIdFetch } from "./ai-gateway.server";
+import { createGatewayRunIdFetch } from "./ai-gateway.server";
 import { SERVICES } from "./content";
 
 const PACKAGE_TITLES = SERVICES.map((s) => s.title);
@@ -48,8 +48,8 @@ export const recommendPackage = createServerFn({ method: "POST" })
       throw new Error("اكتب وصفاً لسيارتك أو ارفع صورة لها.");
     }
 
-    const runIdFetch = createLovableAiGatewayRunIdFetch();
-    const lovable = createOpenAI({
+    const runIdFetch = createGatewayRunIdFetch();
+    const gateway = createOpenAI({
       baseURL: "https://ai.gateway.lovable.dev/v1",
       apiKey: key, // satisfies the SDK; the gateway authenticates on the header below
       headers: { "Lovable-API-Key": key, "X-Lovable-AIG-SDK": "vercel-ai-sdk" },
@@ -70,7 +70,7 @@ export const recommendPackage = createServerFn({ method: "POST" })
     ].join("\n");
 
     const result = streamText({
-      model: lovable.responses("openai/gpt-6-astra"),
+      model: gateway.responses("openai/gpt-6-astra"),
       output: Output.object({ schema: AdvisorSchema }),
       messages: [
         {

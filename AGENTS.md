@@ -8,3 +8,8 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+# Engineering Rules
+
+- Import gallery media from `src/assets` so production bundles retain stable image paths.
+- Keep analytics initialization consent-gated and route every contact conversion through the shared tracking utility.

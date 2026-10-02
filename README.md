@@ -44,16 +44,6 @@ Create a centralized tracking config and inject the exact following IDs into the
 - Add detailed inline code comments explaining the tracking functions and component structure.
 - Produce 100% clean TypeScript with ZERO lint errors, zero build errors, and properly resolved `@/` aliases. Ensure it is immediately ready for export.
 
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/4f63b596-6871-4d10-859d-6606949a1ff6).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
 ## Development
 
 Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
