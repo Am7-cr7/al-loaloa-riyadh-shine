@@ -20,6 +20,11 @@ export default defineConfig(({ command }) => ({
       : []),
     viteReact(),
   ],
+  // Build output must land in dist/ (client assets + server bundle) for deployment.
+  environments: {
+    client: { build: { outDir: "dist/client" } },
+    ssr: { build: { outDir: "dist/server" } },
+  },
   css: { transformer: "lightningcss" },
   resolve: {
     alias: { "@": new URL("./src", import.meta.url).pathname },
