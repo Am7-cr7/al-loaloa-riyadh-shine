@@ -13,13 +13,18 @@ export default defineConfig(({ command }) => ({
     ...(command === "build"
       ? [
           nitro({
-            preset: "node-server",
-            output: { dir: ".output", serverDir: "server", publicDir: "client" },
+            preset: "cloudflare-module",
+            output: { dir: "dist", serverDir: "dist/server", publicDir: "dist/client" },
           }),
         ]
       : []),
     viteReact(),
   ],
+  // Build output must land in dist/ (client assets + server bundle) for deployment.
+  environments: {
+    client: { build: { outDir: "dist/client" } },
+    ssr: { build: { outDir: "dist/server" } },
+  },
   css: { transformer: "lightningcss" },
   resolve: {
     alias: { "@": new URL("./src", import.meta.url).pathname },
