@@ -13,8 +13,8 @@ export default defineConfig(({ command }) => ({
     ...(command === "build"
       ? [
           nitro({
-            preset: "node-server",
-            output: { dir: ".output", serverDir: "server", publicDir: "client" },
+            preset: "cloudflare-module",
+            output: { dir: "dist", serverDir: "dist/server", publicDir: "dist/client" },
           }),
         ]
       : []),
