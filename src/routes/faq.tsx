@@ -12,13 +12,13 @@ export const Route = createFileRoute("/faq")({
   component: FaqPage,
   head: () => ({
     meta: [
-      { title: "الأسئلة الشائعة | اللؤلؤة لغسيل السيارات بالبخار" },
+      { title: "الأسئلة الشائعة | اللمسة الذهبية لغسيل السيارات بالبخار" },
       {
         name: "description",
         content:
           "إجابات عن الخدمة المتنقلة، مدة التنفيذ، أمان البخار على الفرش والجلد، وطرق الدفع في الرياض.",
       },
-      { property: "og:title", content: "الأسئلة الشائعة | اللؤلؤة" },
+      { property: "og:title", content: "الأسئلة الشائعة | اللمسة الذهبية" },
       {
         property: "og:description",
         content: "كل ما تحتاج معرفته عن خدمة الغسيل بالبخار المتنقلة في الرياض.",

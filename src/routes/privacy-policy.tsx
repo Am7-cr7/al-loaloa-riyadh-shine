@@ -5,16 +5,16 @@ export const Route = createFileRoute("/privacy-policy")({
   component: PrivacyPage,
   head: () => ({
     meta: [
-      { title: "سياسة الخصوصية | اللؤلؤة" },
+      { title: "سياسة الخصوصية | اللمسة الذهبية" },
       {
         name: "description",
         content:
-          "سياسة الخصوصية الخاصة بموقع اللؤلؤة لغسيل وتلميع السيارات المتنقل في الرياض وطريقة استخدام بيانات الزوار.",
+          "سياسة الخصوصية الخاصة بموقع اللمسة الذهبية لغسيل وتلميع السيارات المتنقل في الرياض وطريقة استخدام بيانات الزوار.",
       },
-      { property: "og:title", content: "سياسة الخصوصية | اللؤلؤة" },
+      { property: "og:title", content: "سياسة الخصوصية | اللمسة الذهبية" },
       {
         property: "og:description",
-        content: "كيف نتعامل مع بياناتك عند استخدام موقع اللؤلؤة.",
+        content: "كيف نتعامل مع بياناتك عند استخدام موقع اللمسة الذهبية.",
       },
       { property: "og:url", content: "https://alloaloariyadh.com/privacy-policy" },
       { name: "twitter:url", content: "https://alloaloariyadh.com/privacy-policy" },

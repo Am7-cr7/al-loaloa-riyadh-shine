@@ -7,13 +7,13 @@ export const Route = createFileRoute("/services")({
   component: ServicesPage,
   head: () => ({
     meta: [
-      { title: "خدمات وباقات الغسيل والتلميع | اللؤلؤة الرياض" },
+      { title: "خدمات وباقات الغسيل والتلميع | اللمسة الذهبية الرياض" },
       {
         name: "description",
         content:
           "باقات غسيل خارجي بالبخار، تنظيف داخلي عميق، تلميع وبوليش، وباقة الوكالة الشاملة — خدمة متنقلة في الرياض.",
       },
-      { property: "og:title", content: "خدمات وباقات اللؤلؤة" },
+      { property: "og:title", content: "خدمات وباقات اللمسة الذهبية" },
       {
         property: "og:description",
         content: "باقات عناية بالسيارات بالبخار تصلك في موقعك بالرياض.",
