@@ -1,6 +1,6 @@
 # Al-Loaloa: Riyadh Shine
 
-Act as a Senior Principal Frontend Engineer. Build a complete, production-ready, zero-error React web application for "Al-Loaloa" (اللؤلؤة) - a mobile steam car wash and detailing service operating in Riyadh, Saudi Arabia.
+Act as a Senior Principal Frontend Engineer. Build a complete, production-ready, zero-error React web application for "Al-Loaloa" (اللمسة الذهبية) - a mobile steam car wash and detailing service operating in Riyadh, Saudi Arabia.
 
 Use the provided screenshot as a baseline design reference, but ensure the architecture follows the strict production specifications detailed below.
 
@@ -11,7 +11,7 @@ Use the provided screenshot as a baseline design reference, but ensure the archi
 - **Hosting:** Hostinger Apache SPA. Automatically generate a `.htaccess` file in `/public` with fallback rewrites to `index.html`.
 
 ### 2. BUSINESS DATA & SOCIAL LINKS (HARDCODE THESE)
-- **Phone & WhatsApp Number:** `+966 53 264 0488` (Format WhatsApp links to `https://wa.me/966532640488`).
+- **Phone & WhatsApp Number:** `+966 55 494 5482` (Format WhatsApp links to `https://wa.me/966554945482`).
 - **Snapchat:** `https://www.snapchat.com/add/lulwariyadh?share_id=qZyloaBMTbY&locale=ar-EG` (Username: lulwariyadh)
 - **Facebook:** `https://www.facebook.com/share/19EJnmxxgJ/`
 - **TikTok:** `https://www.tiktok.com/@lulwacarwash?_r=1&_t=ZS-99lDslwGiff`
