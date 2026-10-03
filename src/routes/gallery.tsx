@@ -7,13 +7,13 @@ export const Route = createFileRoute("/gallery")({
   component: GalleryPage,
   head: () => ({
     meta: [
-      { title: "معرض الأعمال قبل وبعد | اللؤلؤة الرياض" },
+      { title: "معرض الأعمال قبل وبعد | اللمسة الذهبية الرياض" },
       {
         name: "description",
         content:
           "شاهد نتائج التنظيف العميق بالبخار للمقاعد والفرش والكنسول — صور حقيقية قبل وبعد من عملائنا في الرياض.",
       },
-      { property: "og:title", content: "معرض قبل وبعد | اللؤلؤة" },
+      { property: "og:title", content: "معرض قبل وبعد | اللمسة الذهبية" },
       {
         property: "og:description",
         content: "نتائج حقيقية لتنظيف السيارات بالبخار في الرياض.",
