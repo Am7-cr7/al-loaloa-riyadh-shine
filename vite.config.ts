@@ -5,23 +5,27 @@ import { nitro } from "nitro/vite";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
+const isVercel = !!process.env.VERCEL;
+const isCloudflare =
+  !!process.env.WORKERS_CI ||
+  !!process.env.CF_PAGES ||
+  process.env.DEPLOY_TARGET === "cloudflare";
+
+const nitroConfig = isVercel
+  ? { preset: "vercel" }
+  : isCloudflare
+    ? { preset: "cloudflare-module", output: { dir: "dist" } }
+    : {
+        preset: "node-server",
+        output: { dir: ".output", serverDir: "server", publicDir: "client" },
+      };
+
 export default defineConfig(({ command }) => ({
   plugins: [
     tailwindcss(),
     tsconfigPaths({ projects: ["./tsconfig.json"] }),
     tanstackStart({ server: { entry: "server" } }),
-    ...(command === "build"
-      ? [
-          nitro(
-            process.env.VERCEL
-              ? { preset: "vercel" }
-              : {
-                  preset: "node-server",
-                  output: { dir: ".output", serverDir: "server", publicDir: "client" },
-                }
-          ),
-        ]
-      : []),
+    ...(command === "build" ? [nitro(nitroConfig)] : []),
     viteReact(),
   ],
   css: { transformer: "lightningcss" },
