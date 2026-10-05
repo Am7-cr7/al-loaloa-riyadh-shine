@@ -61,7 +61,7 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <Link to="/" className="font-display text-2xl font-extrabold text-gradient-gold">
+          <Link to="/" className="font-display text-base sm:text-xl md:text-2xl font-extrabold text-gradient-gold whitespace-nowrap">
             {SITE.nameAr}
           </Link>
         </div>
